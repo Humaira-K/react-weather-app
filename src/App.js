@@ -1,16 +1,15 @@
 import React from "react"
 import './App.css';
+import Weather from "./Weather";
 
 export default function App() {
   return (
     <div className="App">
       <div className="container">
-     <h1>Weather App</h1> 
+ 
+<Weather/>
 
-
-
-
-     <footer id="github-linkedin-link">
+     <footer className="github-linkedin-link">
       <p>
         <a
           href="https://github.com/Humaira-K/react-weather-app"
