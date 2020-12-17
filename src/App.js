@@ -7,7 +7,7 @@ export default function App() {
     <div className="App">
       <div className="container">
  
-<Weather/>
+<Weather defaultCity="Toronto"/>
 
      <footer className="github-linkedin-link">
       <p>
