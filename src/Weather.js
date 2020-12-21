@@ -8,6 +8,7 @@ import "./Weather.css";
 export default function Weather(props) {
 const [weatherData, setWeatherData] =  useState({ ready: false });
 const [city, setCity] = useState(props.defaultCity);
+ const [countryCode, setCountryCode] = useState(props.defaultCountryCode);
 function handleResponse(response) {
 
     setWeatherData({
@@ -18,14 +19,15 @@ function handleResponse(response) {
         description: response.data.weather[0].description,
         icon: response.data.weather[0].icon,
         wind: response.data.wind.speed,
-        city: response.data.name
+        city: response.data.name,
+        countryCode: response.data.sys.country,
 
     })
 }
 
 function search() {
     let apiKey = "c4e8686879553a92040532234f03a66e";   
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(handleResponse);
 
 }
@@ -38,7 +40,11 @@ function handleSubmit(event) {
 
 
 function handleCityChange(event) {
- setCity(event.target.value);
+    const location = event.target.value;
+        const locationArray = location.split(",");
+
+        setCity(locationArray[0]);
+        setCountryCode(locationArray[1]);
 }
 
 if (weatherData.ready){
