@@ -33,6 +33,7 @@ function search() {
 }
 
 function handleSubmit(event) {
+    
     event.preventDefault();
    search()
 
@@ -48,7 +49,7 @@ function handleCityChange(event) {
 }
 
 if (weatherData.ready){
-   return (
+   return (    
       <div className="Weather">
         <form onSubmit={handleSubmit}>
 
