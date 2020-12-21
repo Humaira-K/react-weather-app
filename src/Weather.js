@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch, faMapMarkerAlt,} from "@fortawesome/free-solid-svg-icons";
 import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./Weather.css";
@@ -18,6 +19,7 @@ function handleResponse(response) {
         icon: response.data.weather[0].icon,
         wind: response.data.wind.speed,
         city: response.data.name
+
     })
 }
 
@@ -34,36 +36,34 @@ function handleSubmit(event) {
 
 }
 
+
 function handleCityChange(event) {
  setCity(event.target.value);
 }
 
 if (weatherData.ready){
-    return (
-    <div className="Weather">
+   return (
+      <div className="Weather">
         <form onSubmit={handleSubmit}>
-          <div className="row">
-              <div className="col-6">
-                  <input type="search" 
-                  placeholder="Enter a city..." 
-                  className="form-control"
-                  autoFocus="on"
-                  onChange={handleCityChange}/>
-              </div>
-              <div className="col-3">
-                  <input type="submit" value="Search" className="btn btn-primary "/>
-              </div>
-              <div className="col-2"><input type="submit" value="📍" className="btn btn-primary"/></div>
+
+            <div className="input-group">
+           <input  className="form-control" type="search"
+                placeholder="Enter a city.."
+                autoFocus="on"
+                onChange={handleCityChange} />
+           <button className="btn btn-light" type="button"><FontAwesomeIcon icon={faSearch} />
+           </button>
+           <button className="btn btn-light" type="button">  <FontAwesomeIcon icon={faMapMarkerAlt} /></button>
           </div>
+
+
         </form>
         <WeatherInfo data={weatherData} />
-
-         </div>
-         
-         );
-} else {
-   search();
-  return "Loading....";
-}
-   
+        
+      </div>
+    );
+  } else {
+    search();
+    return "Loading...";
+  }
 }
