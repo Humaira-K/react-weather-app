@@ -22,6 +22,7 @@ function handleResponse(response) {
         wind: response.data.wind.speed,
         city: response.data.name,
         countryCode: response.data.sys.country,
+        feelsLike: response.data.main.feels_like,
 
     })
 }
@@ -37,6 +38,7 @@ function handleSubmit(event) {
     
     event.preventDefault();
    search()
+   
 
 }
 

@@ -4,8 +4,8 @@ import WeatherIcon from "./WeatherIcon.js";
 export default function WeatherForecastPreview(props) {
   function hours() {
     let date = new Date(props.data.dt * 1000);
-    let hours = date.getHours();
-    return `${hours}:00`;
+   
+    return `${date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}`;
 }
 
 function temperature() {
