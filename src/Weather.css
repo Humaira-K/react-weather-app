@@ -1,5 +1,5 @@
 .Weather {
-  background-image: url("background.jpg");
+  /* background-image: url("background.jpg"); */
   background-size: cover;
   font-family: arial, sans-serif;
   border: 1px solid #dadde1;
@@ -50,3 +50,7 @@
   line-height: 1;
   top: -34px;
 }
+.Weather .hourlyForecast {
+  text-align: center;
+  font-size: 20px;
+} 

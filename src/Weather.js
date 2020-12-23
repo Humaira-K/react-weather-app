@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faMapMarkerAlt,} from "@fortawesome/free-solid-svg-icons";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 import "./Weather.css";
 
@@ -66,6 +67,8 @@ if (weatherData.ready){
 
         </form>
         <WeatherInfo data={weatherData} />
+        <p className="hourlyForecast">16 Hours Forecast</p>
+        <WeatherForecast city={weatherData.city} />
         
       </div>
     );
