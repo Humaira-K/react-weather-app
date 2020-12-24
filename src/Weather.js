@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faMapMarkerAlt,} from "@fortawesome/free-solid-svg-icons";
+import { faSearch} from "@fortawesome/free-solid-svg-icons";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
@@ -34,14 +34,10 @@ function search() {
 
 }
 
-function handleSubmit(event) {
-    
+function handleSubmit(event) { 
     event.preventDefault();
    search()
-   
-
 }
-
 
 function handleCityChange(event) {
     const location = event.target.value;
@@ -58,14 +54,14 @@ if (weatherData.ready){
 
             <div className="input-group">
            <input  className="form-control" type="search"
-                placeholder="Enter a city.."
+                placeholder="Enter a city...."
                 autoFocus="on"
                 onChange={handleCityChange} />
+                
            <button className="btn btn-light" type="button"><FontAwesomeIcon icon={faSearch} />
            </button>
-           <button className="btn btn-light" type="button">  <FontAwesomeIcon icon={faMapMarkerAlt} /></button>
+           {/* <button className="btn btn-light" type="button">  <FontAwesomeIcon icon={faMapMarkerAlt} /></button> */}
           </div>
-
 
         </form>
         <WeatherInfo data={weatherData} />
